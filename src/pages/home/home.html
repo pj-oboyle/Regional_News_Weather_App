@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      G00398242
+    </ion-title>
+    <!-- Settings Button-->
+    <ion-buttons end>
+      <button ion-button (click)="openSettings()"> 
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+  <!-- Location Section -->
+  <h3 [hidden]="noLocation">No city selected</h3>
+  <div [hidden]="hideLocation">
+    <h2>Country: {{ country }}</h2>
+    <h3>Capital: {{ capital }}</h3>
+    <img src="{{ flag }}" alt="Flag Icon">
+    <p><strong>Latitude: </strong> {{ lat }}<strong> Longitude: </strong> {{ lon }}</p>
+    <!-- Current Time Section -->
+    <h5 [hidden]="hideTime">{{ timeZone }} Time: {{ currentTime }}</h5>
+  </div>
+  <!-- Weather Section -->
+  <h1 >Weather</h1>
+  <ion-spinner [hidden]= "spinner" name="circles"></ion-spinner>
+  <h3 [hidden]="noWeather">No Weather Available</h3>
+  <div [hidden]="hideWeather">
+    <h2>Station: {{ station }}</h2>
+    <h3>Temperature here: {{ temperature }} {{ symbol }}</h3>
+    <h3>Forecast: {{ forecast }}</h3>
+    <img src="{{ forecastIcon }}" alt="Weather Icon">
+    <h3>Wind Direction: {{ windDir }}</h3>
+  </div>
+  <!-- News Section -->
+  <br>
+  <h1 [hidden]="hideNews" style="display: inline">{{ code }}</h1><h1 style="display: inline"> News</h1>
+  <br>
+  <h3 [hidden]="noNews">No News Available</h3>
+  <br>
+  <ion-spinner [hidden]= "spinner" name="circles"></ion-spinner>
+  <div [hidden]="hideNews">
+    <!-- Updated Time & Date Section -->
+    <h6>Updated {{ currentDate }} at {{ currentTime }}</h6>
+    <ion-card *ngFor="let news of newsArray" >
+      <!-- Inline CSS to remove hyperlink formatting from the title and description elements-->
+      <a href="{{ news.url }}" target="_blank" style="text-decoration: none; color: black;">
+        <img src="{{ news.urlToImage }}" alt="News Image" onerror="this.src='/assets/imgs/no-image-placeholder.jpg';"><br>   
+       <ion-card-header>
+          <ion-card-title>{{ news.title }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>{{ news.description }}</ion-card-content>
+      </a>
+    </ion-card>
+  </div>
+
+</ion-content>

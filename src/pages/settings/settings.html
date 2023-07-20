@@ -1,0 +1,60 @@
+<!--
+  Generated template for the SettingsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>Location Settings</h1>
+  <h4>Current City: {{ currentCity }}</h4>
+  <!-- Location Input Section -->
+  <ion-list>
+    <ion-list-header>
+      Enter Location and Click Save
+    </ion-list-header>
+      <input [(ngModel)]= "newLocation">
+      <button ion-button (click)="storeLocation(newLocation)">Save</button>
+  </ion-list>
+  
+  <h1>Temperature Settings</h1>
+  <!-- Temperature Radio Buttons -->
+  <ion-list radio-group [(ngModel)]= "tempUnit">
+    <ion-list-header>
+      Select Units
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Celsius</ion-label>
+      <ion-radio (ionSelect)="setTUnit('celsius')" value="celsius" [checked]='celsius'></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Fahrenheit</ion-label>
+      <ion-radio (ionSelect)="setTUnit('fahrenheit')" value="fahrenheit"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Kelvin</ion-label>
+      <ion-radio (ionSelect)="setTUnit('kelvin')" value="kelvin"></ion-radio>
+    </ion-item>
+  </ion-list>
+  
+  <h1>Time Settings</h1>
+  <ion-list>
+    <ion-list-header>
+      Display Local Time 
+    </ion-list-header>
+    <ion-item>
+      <!-- Time Mode Toggle Button-->
+      <ion-label>Toggle On/Off</ion-label>
+      <ion-toggle (ionChange)="setTimeMode()" [(ngModel)]="timeMode"></ion-toggle>
+    </ion-item>
+  </ion-list>
+  
+  <h1>Delete Settings</h1>
+    <!-- Delete Settings Button -->
+    <button ion-button (click)="emptyStorage()" color="danger">Delete</button>
+</ion-content>
