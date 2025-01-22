@@ -1,0 +1,43 @@
+# Node modules
+node_modules/
+
+# Ionic build artifacts
+www/
+build/
+platforms/
+dist/
+
+# Environment files
+.env
+*.env
+
+# API keys or sensitive configuration files
+src/environments/environment*.ts
+
+# macOS-specific files
+.DS_Store
+
+# Windows-specific files
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE/Editor-specific files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.ps1
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Generated files from Ionic Capacitor or Cordova
+ios/
+android/
