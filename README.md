@@ -1,4 +1,4 @@
-# Ionic Country, Weather & News Reader
+# Country, Weather & News Reader
 
 This Ionic mobile application provides a seamless way to access country information, weather updates, and news for a specified location. The app fetches data from multiple internet resources and stores it efficiently using Ionic storage for enhanced user experience.
 
